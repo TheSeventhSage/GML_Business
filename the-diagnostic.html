@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>
+(function () {
+  try {
+    var stored = localStorage.getItem("diagnostic-theme");
+    var theme = stored || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
+  } catch (e) {}
+})();
+</script>
 <title>The Business Diagnostic &amp; Roadmap Session &mdash; What's Included</title>
 <meta name="description" content="A private, one-on-one audit of your business. Here is exactly what happens in the session and what you leave with." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,11 +22,17 @@
 </head>
 <body>
 
+<div class="nav__scrim" aria-hidden="true"></div>
 <header class="site-header">
   <div class="topbar">
     <a href="tel:+2340000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span class="fill-me">[Phone number]</span></a>
     <span class="topbar__divider">|</span>
     <a href="mailto:hello@example.com"><span class="fill-me">hello@example.com</span></a>
+    <button class="theme-toggle" aria-pressed="false" aria-label="Switch to light mode">
+      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+      <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      <span id="theme-label">Dark</span>
+    </button>
   </div>
   <nav class="nav">
     <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
