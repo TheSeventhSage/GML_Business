@@ -44,16 +44,17 @@ function initTheme() {
     if (toggle) {
       toggle.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
       toggle.setAttribute("aria-label", theme === "light" ? "Switch to dark mode" : "Switch to light mode");
-      var label = toggle.querySelector("#theme-label, .theme-toggle__label");
+      var label = toggle.querySelector("#theme-label, .theme-toggle_label");
       if (label) label.textContent = theme === "light" ? "Light" : "Dark";
     }
   }
 }
 
 function initNav() {
-  var toggle = document.querySelector(".nav__toggle");
-  var links = document.querySelector(".nav__links");
-  var scrim = document.querySelector(".nav__scrim");
+  var toggle = document.querySelector(".nav_toggle");
+  var close = document.querySelector(".nav_close");
+  var links = document.querySelector(".nav_drawer");
+  var scrim = document.querySelector(".nav_scrim");
 
   if (!toggle || !links) return;
 
@@ -62,14 +63,15 @@ function initNav() {
     if (scrim) scrim.classList.toggle("is-open", isOpen);
     document.body.classList.toggle("nav-open", isOpen);
     toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    toggle.innerHTML = isOpen
-      ? '<i class="fa-solid fa-xmark" aria-hidden="true"></i>'
-      : '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
   }
 
   toggle.addEventListener("click", function () {
     setOpen(!links.classList.contains("is-open"));
+  });
+
+  close.addEventListener("click", function () {
+    setOpen(!links.classList.contains("is-open"));
+    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
   });
 
   if (scrim) {

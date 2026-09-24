@@ -1,203 +1,235 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<script>
-(function () {
-  try {
-    var stored = localStorage.getItem("diagnostic-theme");
-    var theme = stored || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-    if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
-  } catch (e) {}
-})();
-</script>
-<title>The Business Diagnostic &amp; Roadmap Session</title>
-<meta name="description" content="A private, one-on-one audit that finds where your business is losing money and hands you a week-by-week plan to stop it." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="assets/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("diagnostic-theme");
+        var theme = stored || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
+      } catch (e) { }
+    })();
+  </script>
+  <title>The Business Diagnostic &amp; Roadmap Session</title>
+  <meta name="description"
+    content="A private, one-on-one audit that finds where your business is losing money and hands you a week-by-week plan to stop it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
 
-<div class="nav__scrim" aria-hidden="true"></div>
-<header class="site-header">
-  <div class="topbar">
-    <a href="tel:+2340000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span class="fill-me">[Phone number]</span></a>
-    <span class="topbar__divider">|</span>
-    <a href="mailto:hello@example.com"><span class="fill-me">hello@example.com</span></a>
-    <button class="theme-toggle" aria-pressed="false" aria-label="Switch to light mode">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
-      <i class="fa-solid fa-sun" aria-hidden="true"></i>
-      <span id="theme-label">Dark</span>
-    </button>
-  </div>
-  <nav class="nav">
-    <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
-    <ul class="nav__links">
-      <li><a href="index.html" aria-current="page">Home</a></li>
-      <li><a href="the-diagnostic.html">The Session</a></li>
-      <li><a href="book-your-session.html">Book a Session</a></li>
-    </ul>
-    <div class="nav__cta">
-      <a href="the-diagnostic.html" class="btn btn--ghost">The Session</a>
-      <a href="book-your-session.html" class="btn btn--primary">Book Your Session</a>
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">
-        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+  <div class="nav_scrim" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="topbar">
+      <a href="tel:+2340000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span class="fill-me">[Phone
+          number]</span></a>
+      <span class="topbar_divider">|</span>
+      <a href="mailto:hello@example.com"><span class="fill-me">hello@example.com</span></a>
+      <button class="theme-toggle" aria-pressed="false" aria-label="Switch to light mode">
+        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+        <span id="theme-label">Dark</span>
       </button>
     </div>
-  </nav>
-</header>
+    <nav class="nav">
 
-<main>
 
-  <section class="hero">
-    <div class="container">
-      <div class="hero__grid">
-        <div>
-          <p class="hero__eyebrow">A heart to heart with the Nigerian business owner who is tired of looking rich</p>
-          <h1 class="hero__title">Your business looks big to everyone outside. But where is the money?</h1>
-          <p class="hero__subtitle">A private diagnostic session for the founder who is sweating over salary every 25th of the month while everyone else assumes you've made it.</p>
-          <div class="hero__actions">
-            <a href="book-your-session.html" class="btn btn--primary btn--large">Book your diagnostic session</a>
-            <a href="the-diagnostic.html" class="btn btn--ghost btn--large">See what's included</a>
+      <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
+      <div class="nav_drawer" id="nav-drawer">
+        <button class="nav_close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav_links">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="the-diagnostic.html">The Session</a></li>
+          <li><a href="book-your-session.html">Book a Session</a></li>
+        </ul>
+      </div>
+      <div class="nav_cta">
+        <a href="the-diagnostic.html" class="btn btn--ghost">The Session</a>
+        <a href="book-your-session.html" class="btn btn--primary">Book Your Session</a>
+        <button class="nav_toggle" aria-label="Open menu" aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero_grid">
+          <div>
+            <p class="hero_eyebrow">A heart to heart with the Nigerian business owner who is tired of looking rich</p>
+            <h1 class="hero_title">Your business looks big to everyone outside. But where is the money?</h1>
+            <p class="hero_subtitle">A private diagnostic session for the founder who is sweating over salary every 25th
+              of the month while everyone else assumes you've made it.</p>
+            <div class="hero_actions">
+              <a href="book-your-session.html" class="btn btn--primary btn--large">Book your diagnostic session</a>
+              <a href="the-diagnostic.html" class="btn btn--ghost btn--large">See what's included</a>
+            </div>
+            <p class="hero_note ">Only 3 diagnostic audits accepted each week</p>
           </div>
-          <p class="hero__note">Only 3 diagnostic audits accepted each week</p>
+          <div>
+            <svg class="vitals" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" role="img"
+              aria-label="Abstract line chart">
+              <path
+                d="M0,180 L40,180 L60,120 L80,200 L100,60 L120,180 L160,180 L190,140 L220,190 L250,90 L280,180 L320,180 L350,150 L380,170 L410,110 L440,180 L480,180" />
+              <circle cx="100" cy="60" r="4"></circle>
+              <circle cx="250" cy="90" r="4"></circle>
+              <circle cx="410" cy="110" r="4"></circle>
+            </svg>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section--panel">
+      <div class="container">
+        <div class="section_head">
+          <h2>If any of this sounds familiar, keep reading</h2>
+          <p>A business rarely collapses overnight. It bleeds out slowly, and most owners are too close to the daily
+            fire-fighting to see where the leaks actually are.</p>
+        </div>
+        <ul class="symptom-list">
+          <li>
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <p>It's the 23rd of the month, and you still don't know where next week's payroll is coming from.</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <p>Customers bought on credit months ago and won't pay up, while your suppliers demand cash upfront.</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <p>Diesel, logistics, and rent climb every week. You're selling in the millions, but the account balance is
+              mocking you.</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            <p>The staff you pay to help act like spectators. Nothing moves unless you're physically there to push it.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section_head">
+          <h2>You are pouring water into a basket</h2>
+          <p>Your business is not struggling because the economy is tough. Other businesses in your exact space are
+            making clean profit. Yours is suffering because it has internal leaks.</p>
+        </div>
+        <div class="card-grid">
+          <div class="leak-card">
+            <div class="leak-card_icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+            <h3>Your margins are fake</h3>
+            <p>By the time hidden logistics, bank charges, demurrage, damaged goods, and utilities are factored in, you
+              may already be selling at a loss.</p>
+          </div>
+          <div class="leak-card">
+            <div class="leak-card_icon"><i class="fa-solid fa-box-archive" aria-hidden="true"></i></div>
+            <h3>Your money is trapped</h3>
+            <p>Sitting in uncollected debts from old customers, or parked in slow-moving stock gathering dust on shelves
+              for months.</p>
+          </div>
+          <div class="leak-card">
+            <div class="leak-card_icon"><i class="fa-solid fa-user-clock" aria-hidden="true"></i></div>
+            <h3>You're the bottleneck</h3>
+            <p>You're doing the job of accountant, marketer, and debt collector. That's not a company, it's a daily
+              struggle that collapses the day you fall sick.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--panel">
+      <div class="container">
+        <div class="pull-quote">
+          <p>Before a competent doctor touches a sick patient, they run tests. They find the real source of the problem
+            instead of prescribing paracetamol for internal bleeding. Your business deserves the same.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section_head">
+          <h2>The Business Diagnostic &amp; Roadmap Session</h2>
+          <p>A private, one-on-one consultation, in person or on a closed video call, built around three things.</p>
+        </div>
+        <div class="process">
+          <div class="process_step">
+            <span class="process_index">01</span>
+            <h3>Find the leaks</h3>
+            <p>We strip down your books, inventory flow, pricing, and daily operations to see exactly where your cash is
+              disappearing.</p>
+          </div>
+          <div class="process_step">
+            <span class="process_index">02</span>
+            <h3>Design the remedy</h3>
+            <p>A map of the exact structural, pricing, and operational adjustments needed to stop the bleeding and
+              protect your cash.</p>
+          </div>
+          <div class="process_step">
+            <span class="process_index">03</span>
+            <h3>Draft the blueprint</h3>
+            <p>A plain-English, week-by-week action plan: what to fix now, what to renegotiate, and what to change by
+              month two.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band_inner">
         <div>
-          <svg class="vitals" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract line chart">
-            <path d="M0,180 L40,180 L60,120 L80,200 L100,60 L120,180 L160,180 L190,140 L220,190 L250,90 L280,180 L320,180 L350,150 L380,170 L410,110 L440,180 L480,180" />
-            <circle cx="100" cy="60" r="4"></circle>
-            <circle cx="250" cy="90" r="4"></circle>
-            <circle cx="410" cy="110" r="4"></circle>
-          </svg>
+          <h2>The question isn't whether you can afford this session.</h2>
+          <p>It's whether you still have time to keep guessing.</p>
         </div>
+        <a href="book-your-session.html" class="btn btn--primary btn--large">Book your diagnostic session</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section--panel">
+  </main>
+
+  <footer class="site-footer">
     <div class="container">
-      <div class="section__head">
-        <h2>If any of this sounds familiar, keep reading</h2>
-        <p>A business rarely collapses overnight. It bleeds out slowly, and most owners are too close to the daily fire-fighting to see where the leaks actually are.</p>
-      </div>
-      <ul class="symptom-list">
-        <li>
-          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-          <p>It's the 23rd of the month, and you still don't know where next week's payroll is coming from.</p>
-        </li>
-        <li>
-          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-          <p>Customers bought on credit months ago and won't pay up, while your suppliers demand cash upfront.</p>
-        </li>
-        <li>
-          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-          <p>Diesel, logistics, and rent climb every week. You're selling in the millions, but the account balance is mocking you.</p>
-        </li>
-        <li>
-          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
-          <p>The staff you pay to help act like spectators. Nothing moves unless you're physically there to push it.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <h2>You are pouring water into a basket</h2>
-        <p>Your business is not struggling because the economy is tough. Other businesses in your exact space are making clean profit. Yours is suffering because it has internal leaks.</p>
-      </div>
-      <div class="card-grid">
-        <div class="leak-card">
-          <div class="leak-card__icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
-          <h3>Your margins are fake</h3>
-          <p>By the time hidden logistics, bank charges, demurrage, damaged goods, and utilities are factored in, you may already be selling at a loss.</p>
+      <div class="site-footer_grid">
+        <div class="site-footer_brand">
+          <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
+          <p class="fill-me">[One line about the consultant: name, background, and why they run these sessions]</p>
         </div>
-        <div class="leak-card">
-          <div class="leak-card__icon"><i class="fa-solid fa-box-archive" aria-hidden="true"></i></div>
-          <h3>Your money is trapped</h3>
-          <p>Sitting in uncollected debts from old customers, or parked in slow-moving stock gathering dust on shelves for months.</p>
-        </div>
-        <div class="leak-card">
-          <div class="leak-card__icon"><i class="fa-solid fa-user-clock" aria-hidden="true"></i></div>
-          <h3>You're the bottleneck</h3>
-          <p>You're doing the job of accountant, marketer, and debt collector. That's not a company, it's a daily struggle that collapses the day you fall sick.</p>
+        <div class="site-footer_contact">
+          <div><i class="fa-solid fa-phone" aria-hidden="true"></i><span class="fill-me">[Phone number]</span></div>
+          <div><i class="fa-solid fa-envelope" aria-hidden="true"></i><span class="fill-me">hello@example.com</span>
+          </div>
+          <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span class="fill-me">[City, Nigeria]</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section section--panel">
-    <div class="container">
-      <div class="pull-quote">
-        <p>Before a competent doctor touches a sick patient, they run tests. They find the real source of the problem instead of prescribing paracetamol for internal bleeding. Your business deserves the same.</p>
+      <div class="site-footer_bottom">
+        <span>&copy; <span id="year"></span> The Diagnostic. All rights reserved.</span>
+        <span class="fill-me">[Privacy Policy] &middot; [Terms &amp; Conditions]</span>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <h2>The Business Diagnostic &amp; Roadmap Session</h2>
-        <p>A private, one-on-one consultation, in person or on a closed video call, built around three things.</p>
-      </div>
-      <div class="process">
-        <div class="process__step">
-          <span class="process__index">01</span>
-          <h3>Find the leaks</h3>
-          <p>We strip down your books, inventory flow, pricing, and daily operations to see exactly where your cash is disappearing.</p>
-        </div>
-        <div class="process__step">
-          <span class="process__index">02</span>
-          <h3>Design the remedy</h3>
-          <p>A map of the exact structural, pricing, and operational adjustments needed to stop the bleeding and protect your cash.</p>
-        </div>
-        <div class="process__step">
-          <span class="process__index">03</span>
-          <h3>Draft the blueprint</h3>
-          <p>A plain-English, week-by-week action plan: what to fix now, what to renegotiate, and what to change by month two.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-band">
-    <div class="container cta-band__inner">
-      <div>
-        <h2>The question isn't whether you can afford this session.</h2>
-        <p>It's whether you still have time to keep guessing.</p>
-      </div>
-      <a href="book-your-session.html" class="btn btn--primary btn--large">Book your diagnostic session</a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="site-footer__grid">
-      <div class="site-footer__brand">
-        <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
-        <p class="fill-me">[One line about the consultant: name, background, and why they run these sessions]</p>
-      </div>
-      <div class="site-footer__contact">
-        <div><i class="fa-solid fa-phone" aria-hidden="true"></i><span class="fill-me">[Phone number]</span></div>
-        <div><i class="fa-solid fa-envelope" aria-hidden="true"></i><span class="fill-me">hello@example.com</span></div>
-        <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span class="fill-me">[City, Nigeria]</span></div>
-      </div>
-    </div>
-    <div class="site-footer__bottom">
-      <span>&copy; <span id="year"></span> The Diagnostic. All rights reserved.</span>
-      <span class="fill-me">[Privacy Policy] &middot; [Terms &amp; Conditions]</span>
-    </div>
-  </div>
-</footer>
-
-<script src="assets/script.js"></script>
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="assets/script.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
+
 </html>
