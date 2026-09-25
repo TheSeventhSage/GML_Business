@@ -11,14 +11,15 @@ function initTheme() {
   try {
     stored = localStorage.getItem("diagnostic-theme");
   } catch (e) {
-    // localStorage unavailable (private browsing, etc). Fall back to system preference only.
+    // Fail gracefully
+    console.error(e);
   }
 
   var initial = stored;
   if (!initial) {
     initial = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches
       ? "light"
-      : "dark";
+      : "dark"; // Start with system theme preference
   }
 
   applyTheme(initial);
@@ -31,7 +32,8 @@ function initTheme() {
     try {
       localStorage.setItem("diagnostic-theme", next);
     } catch (e) {
-      // ignore, theme just won't persist across visits
+      // Fail Gacefully with error consoled.
+      console.error(e);
     }
   });
 
@@ -63,16 +65,20 @@ function initNav() {
     if (scrim) scrim.classList.toggle("is-open", isOpen);
     document.body.classList.toggle("nav-open", isOpen);
     toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    if (isOpen && close) close.focus();
   }
 
   toggle.addEventListener("click", function () {
     setOpen(!links.classList.contains("is-open"));
   });
 
-  close.addEventListener("click", function () {
-    setOpen(!links.classList.contains("is-open"));
-    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-  });
+  if (close) {
+    close.addEventListener("click", function () {
+      setOpen(false);
+      toggle.focus();
+    });
+  }
 
   if (scrim) {
     scrim.addEventListener("click", function () {

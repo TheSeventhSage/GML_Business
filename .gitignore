@@ -1,0 +1,3 @@
+# Booking records contain customer personal data
+data/
+.env

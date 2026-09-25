@@ -135,8 +135,8 @@
 
 <body>
 
-  <div class="nav_scrim" aria-hidden="true"></div>
   <header class="site-header">
+    <div class="nav_scrim" aria-hidden="true"></div>
     <div class="topbar">
       <a href="tel:+2340000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span class="fill-me">[Phone
           number]</span></a>
@@ -150,13 +150,18 @@
     </div>
     <nav class="nav">
       <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
-      <ul class="nav_links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="the-diagnostic.html">The Session</a></li>
-        <li><a href="book-your-session.html" aria-current="page">Book a Session</a></li>
-      </ul>
+      <div class="nav_drawer" id="nav-drawer">
+        <button class="nav_close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav_links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="the-diagnostic.html">The Session</a></li>
+          <li><a href="book-your-session.html" aria-current="page">Book a Session</a></li>
+        </ul>
+      </div>
       <div class="nav_cta">
-        <button class="nav_toggle" aria-label="Open menu" aria-expanded="false">
+        <button class="nav_toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
       </div>
@@ -170,8 +175,8 @@
         <p class="hero_eyebrow">Business Diagnostic &amp; Roadmap Session</p>
         <h1 class="hero_title" style="max-width: 20ch; font-size: clamp(2.25rem, 3.4vw + 1rem, 3.5rem);">Secure your
           slot</h1>
-        <p class="hero_subtitle">Only 3 diagnostic audits are accepted each week, so each one gets the hours of
-          preparation it needs.</p>
+        <p class="hero_subtitle">Because this requires deep, focused preparation and hours of review for each
+          business, I only accept 3 diagnostic audits per week.</p>
       </div>
     </section>
 
@@ -184,32 +189,36 @@
               <h3>What to expect</h3>
               <ul>
                 <li><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><span><strong>The
-                      diagnosis.</strong> A direct look at your books, pricing, and operations to find where cash is
-                    leaking.</span></li>
+                      diagnosis.</strong> I strip down your books, your inventory flow, your pricing, and your daily
+                    operations, and point directly to where your cash is disappearing.</span></li>
                 <li><i class="fa-solid fa-file-medical" aria-hidden="true"></i><span><strong>The prescription.</strong>
-                    The specific adjustments needed to stop the bleeding and protect your cash.</span></li>
-                <li><i class="fa-solid fa-route" aria-hidden="true"></i><span><strong>The blueprint.</strong> A
-                    week-by-week, plain-English plan you can act on immediately.</span></li>
+                    I map out the exact structural, pricing, and operational adjustments you must make to stop the
+                    bleeding and protect your cash.</span></li>
+                <li><i class="fa-solid fa-route" aria-hidden="true"></i><span><strong>The blueprint.</strong> You
+                    walk away with a crystal-clear roadmap: do this in week one, fix this in week two, renegotiate
+                    this supplier term immediately.</span></li>
               </ul>
             </div>
 
             <div class="detail-block">
               <h3>How to prepare</h3>
               <ul>
-                <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>After booking, you'll receive a short
-                    preliminary questionnaire about your industry and operations.</span></li>
-                <li><i class="fa-solid fa-list-check" aria-hidden="true"></i><span>Come with the questions and numbers
-                    that keep you up at night. The more specific, the more useful the session.</span></li>
-                <li><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>Once payment is confirmed, the
-                    team will reach out to coordinate a time for your private session.</span></li>
+                <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>Fill out the brief preliminary
+                    questionnaire so we can review your industry and operational setup.</span></li>
+                <li><i class="fa-solid fa-list-check" aria-hidden="true"></i><span>Complete your reservation fee to
+                    lock in one of the 3 weekly slots.</span></li>
+                <li><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>My team will coordinate your
+                    private, closed-door session immediately.</span></li>
               </ul>
             </div>
 
             <div class="detail-block">
               <h3>Important information</h3>
               <ul>
-                <li><i class="fa-solid fa-naira-sign" aria-hidden="true"></i><span><strong>Pricing.</strong> ₦150,000
-                    secures your diagnostic session.</span></li>
+                <li><i class="fa-solid fa-naira-sign" aria-hidden="true"></i><span><strong>Pricing.</strong> The fee
+                    for this private diagnostic audit is only ₦150,000. You are already losing more than that every
+                    single month to unmonitored waste, bad credit, margin erosion, and operational friction.</span>
+                </li>
                 <li><i class="fa-solid fa-lock" aria-hidden="true"></i><span><strong>Confidentiality.</strong> Every
                     session is strictly private and closed-door.</span></li>
                 <li><i class="fa-solid fa-rotate" aria-hidden="true"></i><span><strong>Rescheduling.</strong> <span
@@ -298,16 +307,16 @@
         </div>
         <ol class="steps">
           <li>
-            <p>Fill in your details and choose in person or video call.</p>
+            <p>Click below and fill in your details.</p>
           </li>
           <li>
-            <p>Complete payment to reserve one of the 3 weekly slots.</p>
+            <p>Complete your reservation fee to secure one of the 3 weekly slots.</p>
           </li>
           <li>
-            <p>Answer the brief preliminary questionnaire about your business.</p>
+            <p>Fill out the brief preliminary questionnaire so we can review your industry and operational setup.</p>
           </li>
           <li>
-            <p>The team will confirm your private session time within 48 hours.</p>
+            <p>My team will coordinate your private, closed-door session immediately.</p>
           </li>
         </ol>
       </div>
@@ -316,7 +325,7 @@
     <section class="contact-band">
       <div class="container">
         <h2>Still not sure?</h2>
-        <p>Contact the team if you have any further questions, and we'll be happy to help.</p>
+        <p>Contact our team if you have any further questions or queries, and we'll be happy to help.</p>
         <div class="contact-band_actions">
           <a href="mailto:hello@example.com" class="btn btn--ghost">Contact us</a>
           <a href="the-diagnostic.html" class="btn btn--ghost">Read what's included again</a>
@@ -353,7 +362,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    var PAYSTACK_PUBLIC_KEY = "pk_test_340489430ccd695dd2fd06856f54d619862354df";
+    var PAYSTACK_PUBLIC_KEY = "pk_live_235a1fd93993c51b80e99d2d0698f90e335ff007";
 
     document.getElementById("booking-form").addEventListener("submit", function (event) {
       event.preventDefault();
@@ -366,14 +375,28 @@
         email: email,
         amount: 15000000, // ₦150,000 in kobo
         currency: "NGN",
-        ref: "diag_" + Math.floor(Math.random() * 1000000000 + 1),
+        ref: "diag_" + Date.now() + "_" + Math.floor(Math.random() * 1000000),
         metadata: {
           custom_fields: [
             { display_name: "Full Name", variable_name: "full_name", value: fullName }
           ]
         },
         callback: function (response) {
-          window.location.href = "thank-you.html?ref=" + response.reference;
+          // Payment done: save the booking to data/bookings.json, then go to thank-you page
+          fetch("/api/bookings", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              reference: response.reference,
+              full_name: fullName,
+              phone: document.getElementById("phone").value,
+              email: email,
+              business_name: document.getElementById("business-name").value,
+              format: document.querySelector('input[name="format"]:checked').value
+            })
+          }).finally(function () {
+            window.location.href = "thank-you.html?ref=" + response.reference;
+          });
         },
         onClose: function () {
           alert("Error occurred while processing payment! Try again.")

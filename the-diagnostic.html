@@ -29,8 +29,8 @@
 
 <body>
 
-  <div class="nav_scrim" aria-hidden="true"></div>
   <header class="site-header">
+    <div class="nav_scrim" aria-hidden="true"></div>
     <div class="topbar">
       <a href="tel:+2340000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span class="fill-me">[Phone
           number]</span></a>
@@ -44,14 +44,20 @@
     </div>
     <nav class="nav">
       <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
-      <ul class="nav_links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="the-diagnostic.html" aria-current="page">The Session</a></li>
-        <li><a href="book-your-session.html">Book a Session</a></li>
-      </ul>
+      <div class="nav_drawer" id="nav-drawer">
+        <button class="nav_close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav_links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="the-diagnostic.html" aria-current="page">The Session</a></li>
+          <li><a href="book-your-session.html">Book a Session</a></li>
+        </ul>
+        <a href="book-your-session.html" class="btn btn--primary btn--block nav_drawer-cta">Book Your Session</a>
+      </div>
       <div class="nav_cta">
         <a href="book-your-session.html" class="btn btn--primary">Book Your Session</a>
-        <button class="nav_toggle" aria-label="Open menu" aria-expanded="false">
+        <button class="nav_toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
       </div>
@@ -63,9 +69,10 @@
     <section class="hero" style="padding-bottom: 56px;">
       <div class="container">
         <p class="hero_eyebrow">The Business Diagnostic &amp; Roadmap Session</p>
-        <h1 class="hero_title" style="max-width: 18ch;">An X-ray for your business, not another round of guesswork</h1>
-        <p class="hero_subtitle">Not a motivational talk. Not advice to run ads when your margins are already leaking.
-          An outside, objective pair of eyes that sits with your numbers and tells you the blunt truth.</p>
+        <h1 class="hero_title" style="max-width: 18ch;">You need an X-ray, not guesswork</h1>
+        <p class="hero_subtitle">Not someone selling you motivational talk or telling you to run Facebook ads when
+          your margins are already leaking. You need an outside, objective pair of analytical eyes to sit with your
+          numbers and tell you the blunt truth about what is killing your enterprise.</p>
       </div>
     </section>
 
@@ -73,30 +80,32 @@
       <div class="container">
         <div class="section_head">
           <h2>What the session covers</h2>
-          <p>This is a private, intensive, one-on-one consultation, either face to face or on a closed video call. We do
-            three specific things.</p>
+          <p>This is a private, intensive, one-on-one diagnostic consultation where we sit down, either physically
+            or privately on a closed video call, and do three specific things.</p>
         </div>
         <div class="process">
           <div class="process_step">
             <span class="process_index">01</span>
             <h3>The diagnosis</h3>
-            <p>We strip down your books, your inventory flow, your pricing, and your daily operations. You'll get a
-              direct answer on where your cash is disappearing and which customers or products are quietly robbing you.
-            </p>
+            <p>We strip down your books, your inventory flow, your pricing, and your daily operations. I will point
+              directly to where your cash is disappearing, which customers or products are robbing you blind, and
+              why you are working so hard for peanuts.</p>
           </div>
           <div class="process_step">
             <span class="process_index">02</span>
             <h3>The prescription</h3>
-            <p>The exact structural, pricing, and operational adjustments you need to make to stop the bleeding, protect
-              your cash, and recover trapped working capital.</p>
+            <p>I will map out the exact structural, pricing, and operational adjustments you must make to stop the
+              bleeding, protect your cash, and recover trapped working capital.</p>
           </div>
           <div class="process_step">
             <span class="process_index">03</span>
             <h3>The execution path</h3>
-            <p>A crystal-clear, sequential roadmap in plain English: do this in week one, fix this in week two,
-              renegotiate this supplier term immediately.</p>
+            <p>You will walk away with a crystal-clear, sequential roadmap. A plain-English plan: do this in week
+              one, fix this in week two, renegotiate this supplier term immediately.</p>
           </div>
         </div>
+        <p style="max-width: 62ch; margin-top: 32px;">No jargon. No confusing corporate language. Just a clear,
+          clinical action plan built for the reality of doing business here.</p>
       </div>
     </section>
 
@@ -108,17 +117,18 @@
         <ul class="symptom-list">
           <li>
             <i class="fa-solid fa-circle-check" aria-hidden="true" style="color: var(--color-accent);"></i>
-            <p>You run a business that looks successful from the outside, but you can't explain where the money actually
-              goes.</p>
+            <p>You run a company, employ staff, and to everyone watching, you've clearly made it, yet you can't
+              explain where the money actually goes.</p>
           </li>
           <li>
             <i class="fa-solid fa-circle-check" aria-hidden="true" style="color: var(--color-accent);"></i>
-            <p>You're carrying the accounting, the marketing, and the debt collection yourself, and the business stalls
-              the moment you step away.</p>
+            <p>The staff you pay to help act like spectators, and the business cannot run without your physical
+              presence.</p>
           </li>
           <li>
             <i class="fa-solid fa-circle-check" aria-hidden="true" style="color: var(--color-accent);"></i>
-            <p>You're ready for a clinical, no-jargon action plan rather than another motivational conversation.</p>
+            <p>You are doing the job of the accountant, the marketing lead, the debt collector, and the manager, all
+              at once.</p>
           </li>
         </ul>
       </div>
@@ -127,9 +137,9 @@
     <section class="section section--panel">
       <div class="container">
         <div class="pull-quote">
-          <p>My role in this session is that of a specialist. I diagnose the disease, prescribe the exact cure, and hand
-            you the treatment protocol. The execution is yours, though we can discuss implementation support afterward
-            if it makes sense.</p>
+          <p>My role in this session is that of a specialist doctor. I diagnose the disease, prescribe the exact
+            cure, and hand you the precise treatment protocol. The execution of that protocol rests in your hands,
+            or we can discuss implementation support at a later stage if appropriate.</p>
         </div>
       </div>
     </section>
@@ -137,8 +147,9 @@
     <section class="cta-band">
       <div class="container cta-band_inner">
         <div>
-          <h2>Ready to see what's really happening in your business?</h2>
-          <p>Sessions run privately, either in person or by video call, whichever suits you.</p>
+          <h2>Ready to stop running a business that looks successful outside while killing you inside?</h2>
+          <p>Some businesses just keep people busy. Others actually keep profit and create wealth. Which kind are
+            you running?</p>
         </div>
         <a href="book-your-session.html" class="btn btn--primary btn--large">Continue to book your session</a>
       </div>
@@ -147,7 +158,7 @@
     <section class="contact-band">
       <div class="container">
         <h2>Still not sure?</h2>
-        <p>Contact the team if you have any further questions, and we'll be happy to help.</p>
+        <p>Contact our team if you have any further questions or queries, and we'll be happy to help.</p>
         <div class="contact-band_actions">
           <a href="mailto:hello@example.com" class="btn btn--ghost">Contact us</a>
         </div>

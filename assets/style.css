@@ -305,6 +305,14 @@ p:last-child {
   }
 }
 
+/* Keep the topbar on one line on small phones: phone number + theme toggle only */
+@media (max-width: 420px) {
+  .topbar a[href^="mailto:"],
+  .topbar_divider {
+    display: none;
+  }
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -388,6 +396,8 @@ p:last-child {
   color: var(--color-accent);
 }
 
+/* Scrim and drawer both live inside .site-header, which forms one stacking context
+   above the page. Inside it: header content (auto) < scrim (1) < drawer (2). */
 .nav_scrim {
   position: fixed;
   inset: 0;
@@ -395,7 +405,7 @@ p:last-child {
   opacity: 0;
   pointer-events: none;
   transition: opacity 220ms ease;
-  z-index: 45;
+  z-index: 1;
 }
 
 .nav_scrim.is-open {
@@ -409,12 +419,20 @@ p:last-child {
   }
 }
 
+.nav_drawer-cta {
+  display: none;
+}
+
 @media (max-width: 880px) {
+  .topbar {
+    padding: 8px 20px;
+  }
   .nav {
     padding: 14px 20px;
   }
   .nav_drawer {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     right: 0;
@@ -428,7 +446,7 @@ p:last-child {
     padding: 24px 28px 28px;
     transform: translateX(100%);
     transition: transform 280ms ease;
-    z-index: 50;
+    z-index: 2;
     overflow-y: auto;
   }
 
@@ -461,19 +479,30 @@ p:last-child {
   .nav_links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    align-items: stretch;
+    gap: 0;
   }
 
   .nav_links a {
-    padding: 13px 0;
-    width: 100%;
+    display: block;
+    padding: 16px 0 16px 14px;
     border-bottom: 1px solid var(--color-border);
+    border-left: 2px solid transparent;
     font-size: 1.0625rem;
   }
 
-  .nav_links a:last-child {
+  .nav_links li:last-child a {
     border-bottom: none;
+  }
+
+  .nav_links a[aria-current="page"] {
+    border-left-color: var(--color-accent);
+    color: var(--color-accent-strong);
+  }
+
+  .nav_drawer-cta {
+    display: flex;
+    margin-top: 28px;
   }
 
   .nav_cta .btn {

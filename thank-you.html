@@ -28,8 +28,8 @@
 
 <body>
 
-  <div class="nav_scrim" aria-hidden="true"></div>
   <header class="site-header">
+    <div class="nav_scrim" aria-hidden="true"></div>
     <div class="topbar">
       <a href="tel:+2340000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span class="fill-me">[Phone
           number]</span></a>
@@ -43,13 +43,18 @@
     </div>
     <nav class="nav">
       <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
-      <ul class="nav_links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="the-diagnostic.html">The Session</a></li>
-        <li><a href="book-your-session.html">Book a Session</a></li>
-      </ul>
+      <div class="nav_drawer" id="nav-drawer">
+        <button class="nav_close" aria-label="Close menu">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <ul class="nav_links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="the-diagnostic.html">The Session</a></li>
+          <li><a href="book-your-session.html">Book a Session</a></li>
+        </ul>
+      </div>
       <div class="nav_cta">
-        <button class="nav_toggle" aria-label="Open menu" aria-expanded="false">
+        <button class="nav_toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
           <i class="fa-solid fa-bars" aria-hidden="true"></i>
         </button>
       </div>
@@ -63,7 +68,7 @@
           Payment received</p>
         <h1 class="hero_title" style="font-size: clamp(2rem, 3vw + 1rem, 3rem);">Your slot is reserved</h1>
         <p class="hero_subtitle">Thank you. A confirmation has been sent to your email, along with the preliminary
-          questionnaire. The team will reach out within 48 hours to schedule your private session.</p>
+          questionnaire. My team will coordinate your private, closed-door session immediately.</p>
         <p class="hero_note" id="ref-line"></p>
         <div class="hero_actions">
           <a href="index.html" class="btn btn--ghost">Back to home</a>

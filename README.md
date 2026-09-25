@@ -111,24 +111,40 @@ The footer currently contains links for:
 
 ## 2. Booking Data
 
-At the moment, the booking form passes the customer's:
+After a successful payment, the booking is saved to `data/bookings.json` by `server.js`. It is a single file with no npm packages and no build step, and it needs Node.js 20.6 or newer.
 
-- Name
-- Email
-- Payment amount
+**Setup (one time):**
 
-to Paystack.
+1. Copy `.env.example` to `.env`.
+2. Put the Paystack **secret** key in `.env` (Paystack dashboard > Settings > API Keys & Webhooks). Never put the secret key in the HTML.
 
-The form does not independently store booking information.
+**Run:**
 
-A backend or external service should be connected to the form so that bookings can also be recorded in a suitable system, such as:
+```bash
+node --env-file=.env server.js
+```
 
-- CRM
-- Spreadsheet
-- Database
-- Email notification system
+Then open `http://localhost:3000`. Pages must be opened through the server, not by double-clicking the HTML file, or bookings won't save.
 
-This ensures that booking information is not dependent solely on the Paystack dashboard.
+Before saving, the server checks each payment with Paystack, so fake bookings can't be added. Each record looks like this:
+
+```json
+{
+  "reference": "diag_1727258400000_48213",
+  "full_name": "Ada Obi",
+  "phone": "0803...",
+  "email": "ada@example.com",
+  "business_name": "Obi Foods",
+  "format": "in-person",
+  "amount_paid": 150000,
+  "currency": "NGN",
+  "paid_at": "2026-09-25T10:02:00.000Z"
+}
+```
+
+`data/` and `.env` are git-ignored, because they hold customer details and the secret key. The server only serves the HTML pages and `assets/`, so neither can be downloaded from the site.
+
+**Hosting:** the host must run Node.js, for example cPanel's "Setup Node.js App", Render, Railway or a VPS. Set `PAYSTACK_SECRET_KEY` in the host's environment settings. Static-only hosts such as GitHub Pages or Netlify can't save bookings.
 
 ---
 
