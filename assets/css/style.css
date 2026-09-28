@@ -1,5 +1,5 @@
 /* ==========================================================================
-   The Business Diagnostic Platform — shared stylesheet
+  STYLE
    ========================================================================== */
 
 :root {
@@ -26,8 +26,6 @@
   --container-width: 1120px;
   --radius-sm: 3px;
   --radius-md: 6px;
-  --header-blur-bg: color-mix(in srgb, var(--color-bg) 80%, transparent);
-  --drawer-bg: color-mix(in srgb, var(--color-bg-panel) 88%, transparent);
 }
 
 [data-theme="light"] {
@@ -82,10 +80,6 @@ body {
 
 main {
   flex: 1 0 auto;
-}
-
-body.nav-open {
-  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -215,114 +209,7 @@ p:last-child {
   font-size: 1.0625rem;
 }
 
-/* Header --------------------------------------------------------------------*/
-
-.site-header {
-  border-bottom: 1px solid var(--color-border);
-  position: sticky;
-  top: 0;
-  z-index: 47;
-  width: 100%;
-  isolation: isolate;
-}
-
-.site-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--header-blur-bg);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-}
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 10px 24px;
-  padding: 9px 28px;
-  max-width: var(--container-width);
-  margin: 0 auto;
-  border-bottom: 1px solid var(--color-border);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--color-text-faint);
-}
-
-.topbar a {
-  text-decoration: none;
-  color: var(--color-text-faint);
-}
-
-.topbar a:hover {
-  color: var(--color-accent);
-}
-
-.topbar_divider {
-  color: var(--color-border);
-}
-
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  color: var(--color-text-faint);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 5px 12px 5px 10px;
-  cursor: pointer;
-  transition:
-    border-color 160ms ease,
-    color 160ms ease;
-}
-
-.theme-toggle:hover,
-.theme-toggle:focus-visible {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-}
-
-.theme-toggle .fa-sun {
-  display: none;
-}
-
-[data-theme="light"] .theme-toggle .fa-moon {
-  display: none;
-}
-
-[data-theme="light"] .theme-toggle .fa-sun {
-  display: inline-block;
-}
-
-@media (max-width: 560px) {
-  .theme-toggle span {
-    display: none;
-  }
-}
-
-/* Keep the topbar on one line on small phones: phone number + theme toggle only */
-@media (max-width: 420px) {
-  .topbar a[href^="mailto:"],
-  .topbar_divider {
-    display: none;
-  }
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 16px 28px;
-  max-width: var(--container-width);
-  margin: 0 auto;
-  width: 100%;
-}
+/* Wordmark (used in the mini nav and the footer brand line) -------------*/
 
 .wordmark {
   font-family: var(--font-display);
@@ -338,179 +225,58 @@ p:last-child {
   color: var(--color-accent);
 }
 
-.nav_drawer {
-  display: contents;
+/* Mini nav (every page except index.html) -------------------------------*/
+
+.mini-nav {
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
-.nav_close {
-  display: none;
-}
-
-.nav_links {
+.mini-nav_inner {
   display: flex;
   align-items: center;
-  gap: 34px;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.mini-nav .wordmark {
+  font-size: 1.125rem;
+}
+
+.mini-nav_links {
+  display: flex;
+  gap: 4px 22px;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
 }
 
-.nav_links a {
+.mini-nav_links a {
   text-decoration: none;
   color: var(--color-text-muted);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  transition: color 160ms ease;
+  padding: 4px 0;
+  border-bottom: 1px solid transparent;
 }
 
-.nav_links a:hover,
-.nav_links a[aria-current="page"] {
-  color: var(--color-text);
-}
-
-.nav_cta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-shrink: 0;
-}
-
-.nav_toggle {
-  display: none;
-  background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  color: var(--color-text);
-  width: 42px;
-  height: 42px;
-  font-size: 1.125rem;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.nav_toggle:hover,
-.nav_toggle:focus-visible {
-  border-color: var(--color-accent);
+.mini-nav_links a:hover {
   color: var(--color-accent);
 }
 
-/* Scrim and drawer both live inside .site-header, which forms one stacking context
-   above the page. Inside it: header content (auto) < scrim (1) < drawer (2). */
-.nav_scrim {
-  position: fixed;
-  inset: 0;
-  background: rgba(6, 11, 20, 0.55);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 220ms ease;
-  z-index: 1;
+.mini-nav_links a[aria-current="page"] {
+  color: var(--color-accent-strong);
+  border-bottom-color: var(--color-accent);
 }
 
-.nav_scrim.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-@media (min-width: 881px) {
-  .nav_scrim {
-    display: none;
-  }
-}
-
-.nav_drawer-cta {
-  display: none;
-}
-
-@media (max-width: 880px) {
-  .topbar {
-    padding: 8px 20px;
-  }
-  .nav {
-    padding: 14px 20px;
-  }
-  .nav_drawer {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: min(320px, 82vw);
-    background: var(--drawer-bg);
-    backdrop-filter: blur(22px) saturate(160%);
-    -webkit-backdrop-filter: blur(22px) saturate(160%);
-    border-left: 1px solid var(--color-border);
-    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.35);
-    padding: 24px 28px 28px;
-    transform: translateX(100%);
-    transition: transform 280ms ease;
-    z-index: 2;
-    overflow-y: auto;
-  }
-
-  .nav_drawer.is-open {
-    transform: translateX(0);
-  }
-
-  .nav_close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-bottom: 28px;
-    width: 40px;
-    height: 40px;
-    background: transparent;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    color: var(--color-text);
-    font-size: 1.0625rem;
-    cursor: pointer;
-  }
-
-  .nav_close:hover,
-  .nav_close:focus-visible {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-  }
-
-  .nav_links {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-
-  .nav_links a {
-    display: block;
-    padding: 16px 0 16px 14px;
-    border-bottom: 1px solid var(--color-border);
-    border-left: 2px solid transparent;
-    font-size: 1.0625rem;
-  }
-
-  .nav_links li:last-child a {
-    border-bottom: none;
-  }
-
-  .nav_links a[aria-current="page"] {
-    border-left-color: var(--color-accent);
-    color: var(--color-accent-strong);
-  }
-
-  .nav_drawer-cta {
-    display: flex;
-    margin-top: 28px;
-  }
-
-  .nav_cta .btn {
-    display: none;
-  }
-
-  .nav_toggle {
-    display: inline-flex;
+@media (max-width: 520px) {
+  .mini-nav_inner {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 
@@ -994,7 +760,7 @@ p:last-child {
   color: var(--color-accent);
 }
 
-/* Placeholder marker for content the client still needs to supply ---------*/
+/* Extra conotent field     --------------------------*/
 
 .fill-me {
   color: var(--color-alert-strong);

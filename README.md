@@ -38,10 +38,10 @@ Displayed after the payment flow is completed.
 
 ### Assets
 
-**assets/style.css**
+**assets/css/style.css**
 Contains all site styling. No CSS framework is used.
 
-**assets/script.js**
+**assets/js/script.js**
 Contains the JavaScript used for the mobile navigation toggle.
 
 ## Running the Project
@@ -178,7 +178,7 @@ The main visual palette consists of:
 The colours are defined as CSS variables at the top of:
 
 ```text
-assets/style.css
+assets/css/style.css
 ```
 
 This makes it straightforward to adjust the brand colours without changing individual components throughout the stylesheet.

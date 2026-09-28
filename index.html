@@ -4,240 +4,209 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script>
-    (function () {
-      try {
-        var stored = localStorage.getItem("diagnostic-theme");
-        var theme = stored || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-        if (theme === "light") document.documentElement.setAttribute("data-theme", "light");
-      } catch (e) { }
-    })();
-  </script>
+  <script>document.documentElement.setAttribute("data-theme", "light");</script>
   <title>The Business Diagnostic &amp; Roadmap Session</title>
   <meta name="description"
     content="A private, one-on-one audit that finds where your business is losing money and hands you a week-by-week plan to stop it." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/letter.css" />
 </head>
 
-<body>
+<body class="letter">
 
-  <header class="site-header">
-    <div class="nav_scrim" aria-hidden="true"></div>
-    <div class="topbar">
-      <a href="tel:+2340000000000"><i class="fa-solid fa-phone" aria-hidden="true"></i> <span class="fill-me">[Phone
-          number]</span></a>
-      <span class="topbar_divider">|</span>
-      <a href="mailto:hello@example.com"><span class="fill-me">hello@example.com</span></a>
-      <button class="theme-toggle" aria-pressed="false" aria-label="Switch to light mode">
-        <i class="fa-solid fa-moon" aria-hidden="true"></i>
-        <i class="fa-solid fa-sun" aria-hidden="true"></i>
-        <span id="theme-label">Dark</span>
+  <dialog class="intro" id="intro" aria-labelledby="intro-title" aria-describedby="intro-lede">
+    <div class="intro_card">
+      <button type="button" class="intro_x" data-intro-close aria-label="Close and start reading">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
+
+      <p class="intro_eyebrow">Before you read</p>
+      <h2 class="intro_title" id="intro-title">This is not an advert. It is a mirror.</h2>
+      <p class="intro_lede" id="intro-lede">What follows was written for the version of you that sits alone
+        behind the office door. Give it five honest minutes, and read it like this:</p>
+
+      <ol class="intro_steps">
+        <li>
+          <span class="intro_num">1</span>
+          <div>
+            <h3>Read it alone</h3>
+            <p>Not in a meeting, not between calls. Close the door. Nobody is watching what you agree with.</p>
+          </div>
+        </li>
+        <li>
+          <span class="intro_num">2</span>
+          <div>
+            <h3>Keep your last three months in mind</h3>
+            <p>Your sales, your payroll, your debtors. Hold them next to every line you read.</p>
+          </div>
+        </li>
+        <li>
+          <span class="intro_num">3</span>
+          <div>
+            <h3>Count how many times you nod</h3>
+            <p>Each time you think &ldquo;this is me&rdquo;, keep count. The number will tell you more than I can.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="intro_rule">If you nod more than twice, read to the very end.</p>
+
+      <button type="button" class="intro_start" data-intro-close autofocus>
+        I&rsquo;m ready, let me read <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+      </button>
+      <p class="intro_time"><i class="fa-regular fa-clock" aria-hidden="true"></i> About a 5-minute read</p>
     </div>
-    <nav class="nav">
+  </dialog>
 
+  <main class="letter_stage">
+    <article class="letter_sheet">
 
-      <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
-      <div class="nav_drawer" id="nav-drawer">
-        <button class="nav_close" aria-label="Close menu">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-        </button>
-        <ul class="nav_links">
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="the-diagnostic.html">The Session</a></li>
-          <li><a href="book-your-session.html">Book a Session</a></li>
-        </ul>
-        <a href="book-your-session.html" class="btn btn--primary btn--block nav_drawer-cta">Book Your Session</a>
+      <header class="letter_head">
+        <p class="letter_brand">The <span>Diagnostic</span></p>
+        <svg class="letter_pulse" viewBox="0 40 480 180" xmlns="http://www.w3.org/2000/svg" focusable="false"
+          aria-hidden="true">
+          <path
+            d="M0,180 L40,180 L60,120 L80,200 L100,60 L120,180 L160,180 L190,140 L220,190 L250,90 L280,180 L320,180 L350,150 L380,170 L410,110 L440,180 L480,180" />
+          <circle cx="100" cy="60" r="9"></circle>
+          <circle cx="250" cy="90" r="9"></circle>
+          <circle cx="410" cy="110" r="9"></circle>
+        </svg>
+      </header>
+
+      <div class="letter_titleblock">
+        <p class="letter_kicker">A heart to heart conversation with the Nigerian business owner who is tired of
+          looking rich while sweating over salary every 25th of the month</p>
+        <h1 class="letter_title" id="letter-title" tabindex="-1">Your business looks big to people outside. But where is
+          the money?</h1>
+        <p class="letter_lede">Let us be completely honest with each other. Nobody else is in the room.</p>
       </div>
-      <div class="nav_cta">
-        <a href="the-diagnostic.html" class="btn btn--ghost">The Session</a>
-        <a href="book-your-session.html" class="btn btn--primary">Book Your Session</a>
-        <button class="nav_toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
-          <i class="fa-solid fa-bars" aria-hidden="true"></i>
-        </button>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-
-    <section class="hero">
-      <div class="container">
-        <div class="hero_grid">
-          <div>
-            <p class="hero_eyebrow">A heart to heart conversation with the Nigerian business owner who is tired of
-              looking rich while sweating over salary every 25th of the month</p>
-            <h1 class="hero_title">Your business looks big to people outside. But where is the money?</h1>
-            <p class="hero_subtitle">Let us be completely honest with each other. Nobody else is in the room.</p>
-            <div class="hero_actions">
-              <a href="book-your-session.html" class="btn btn--primary btn--large">Book your diagnostic session</a>
-              <a href="the-diagnostic.html" class="btn btn--ghost btn--large">See what's included</a>
-            </div>
-            <p class="hero_note ">Only 3 diagnostic audits accepted each week</p>
-          </div>
-          <div>
-            <svg class="vitals" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg" role="img"
-              aria-label="Abstract line chart">
-              <path
-                d="M0,180 L40,180 L60,120 L80,200 L100,60 L120,180 L160,180 L190,140 L220,190 L250,90 L280,180 L320,180 L350,150 L380,170 L410,110 L440,180 L480,180" />
-              <circle cx="100" cy="60" r="4"></circle>
-              <circle cx="250" cy="90" r="4"></circle>
-              <circle cx="410" cy="110" r="4"></circle>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--panel">
-      <div class="container">
-        <div class="section_head">
-          <h2>Because you know the truth that nobody else sees</h2>
-          <p>To your church, your friends, and your family, you have made it. You run a company, you employ staff,
-            you have an office, a warehouse, or a store where goods move every day. Then you close your office door,
-            sit behind your desk, and your chest begins to tighten.</p>
-        </div>
-        <ul class="symptom-list">
+      <section class="letter_section">
+        <h2 class="letter_h2">Because you know the truth that nobody else sees</h2>
+        <p class="letter_p--dropcap">To your church, your friends, and your family, you have made it. You run a company,
+          you employ staff,
+          you have an office, a warehouse, or a store where goods move every day. Then you close your office door,
+          sit behind your desk, and your chest begins to tighten.</p>
+        <ul class="letter_symptoms">
           <li>
-            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
             <p>It is the 23rd of the month, and you still don't know where next week's payroll is coming from.</p>
           </li>
           <li>
-            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
             <p>Customers bought goods on credit three months ago and won't pay up, but your suppliers are blowing up
               your WhatsApp line demanding cash upfront.</p>
           </li>
           <li>
-            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
             <p>The cost of diesel, clearing goods, logistics, and rent is climbing every single week. You are selling
               in millions of Naira, but when you check your corporate account, the balance is mocking you.</p>
           </li>
           <li>
-            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
             <p>The staff you pay to help you act like spectators. If you don't show up in person to shout, monitor,
               or push, nothing moves. The business cannot run without your physical presence for three straight days.
             </p>
           </li>
         </ul>
-        <p style="margin-top: 40px; max-width: 60ch;">You sit there thinking: &ldquo;I am making sales. Money is
+        <p class="letter_thought">You sit there thinking: &ldquo;I am making sales. Money is
           entering this account. Why am I struggling like this? Where did all the money go?&rdquo;</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section_head">
-          <h2>You are pouring water into a basket</h2>
-          <p>Your business is not suffering because the economy is tough. Yes, inflation and exchange rates are
-            rough, but other businesses in your exact same space are making clean profit and expanding with sanity.
-            Your business is suffering because it has internal leaks. It rarely collapses overnight, it bleeds out
-            slowly.</p>
-        </div>
-        <div class="card-grid">
-          <div class="leak-card">
-            <div class="leak-card_icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+      <section class="letter_section">
+        <h2 class="letter_h2">You are pouring water into a basket</h2>
+        <p>Your business is not suffering because the economy is tough. Yes, inflation and exchange rates are
+          rough, but other businesses in your exact same space are making clean profit and expanding with sanity.
+          Your business is suffering because it has internal leaks. It rarely collapses overnight, it bleeds out
+          slowly.</p>
+        <div class="letter_leaks">
+          <div class="letter_leak">
+            <div class="letter_leak-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
             <h3>Your margins are fake</h3>
             <p>You think you made a 20% margin, but by the time you factor hidden logistics, bank charges, demurrage,
               damaged goods, and utility costs, you actually sold at a loss.</p>
           </div>
-          <div class="leak-card">
-            <div class="leak-card_icon"><i class="fa-solid fa-box-archive" aria-hidden="true"></i></div>
+          <div class="letter_leak">
+            <div class="letter_leak-icon"><i class="fa-solid fa-box-archive" aria-hidden="true"></i></div>
             <h3>Your money is trapped in dead places</h3>
             <p>It's sitting in uncollected debts from friends and old customers, or parked in slow-moving stock that
               has been gathering dust on shelves for eight months.</p>
           </div>
-          <div class="leak-card">
-            <div class="leak-card_icon"><i class="fa-solid fa-user-clock" aria-hidden="true"></i></div>
+          <div class="letter_leak">
+            <div class="letter_leak-icon"><i class="fa-solid fa-user-clock" aria-hidden="true"></i></div>
             <h3>The founder bottleneck</h3>
             <p>You are doing the job of the accountant, the marketing lead, the debt collector, and the manager. You
               are not running a company, you are running a high-risk daily struggle that will collapse the day you
               fall sick.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section--panel">
-      <div class="container">
-        <div class="pull-quote">
-          <p>Praying about it won't fix bad numbers. Pushing harder and sleeping only 3 hours a night won't fix it
-            either. When an engine is broken, stepping harder on the accelerator only blows the engine.</p>
-        </div>
-      </div>
-    </section>
+      <blockquote class="letter_quote">
+        <p>Praying about it won't fix bad numbers. Pushing harder and sleeping only 3 hours a night won't fix it
+          either. When an engine is broken, stepping harder on the accelerator only blows the engine.</p>
+      </blockquote>
 
-    <section class="section">
-      <div class="container">
-        <div class="section_head">
-          <h2>The Business Diagnostic &amp; Roadmap Session</h2>
-          <p>A private, one-on-one consultation, in person or on a closed video call, built around three things.</p>
-        </div>
-        <div class="process">
-          <div class="process_step">
-            <span class="process_index">01</span>
+      <section class="letter_section">
+        <h2 class="letter_h2">The Business Diagnostic &amp; Roadmap Session</h2>
+        <p>A private, one-on-one consultation, in person or on a closed video call, built around three things.</p>
+        <div class="letter_steps">
+          <div class="letter_step">
+            <span class="letter_step-index">01</span>
             <h3>Find the leaks</h3>
             <p>I strip down your books, your inventory flow, your pricing, and your daily operations, and point
               directly to where your cash is disappearing.</p>
           </div>
-          <div class="process_step">
-            <span class="process_index">02</span>
+          <div class="letter_step">
+            <span class="letter_step-index">02</span>
             <h3>Design the remedy</h3>
             <p>I map out the exact structural, pricing, and operational adjustments you must make to stop the
               bleeding and protect your cash.</p>
           </div>
-          <div class="process_step">
-            <span class="process_index">03</span>
+          <div class="letter_step">
+            <span class="letter_step-index">03</span>
             <h3>Draft the blueprint</h3>
             <p>You walk away with a crystal-clear, sequential roadmap: do this in week one, fix this in week two,
               renegotiate this supplier term immediately.</p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="cta-band">
-      <div class="container cta-band_inner">
-        <div>
-          <h2>The question isn't whether you can afford to book a session now.</h2>
-          <p>It's whether you still have time to hesitate.</p>
+      <section class="letter_close">
+        <h2 class="letter_h2">The question isn't whether you can afford to book a session now.</h2>
+        <p class="letter_afterword">It's whether you still have time to hesitate.</p>
+        <div class="letter_actions">
+          <a href="book-your-session.html" class="btn btn--primary btn--large">Book your diagnostic session</a>
+          <a href="the-diagnostic.html" class="btn btn--ghost btn--large">See what's included</a>
         </div>
-        <a href="book-your-session.html" class="btn btn--primary btn--large">Book your diagnostic session</a>
-      </div>
-    </section>
+        <p class="letter_note">Only 3 diagnostic audits accepted each week</p>
+      </section>
 
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="site-footer_grid">
-        <div class="site-footer_brand">
-          <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
-          <p class="fill-me">[One line about the consultant: name, background, and why they run these sessions]</p>
-        </div>
-        <div class="site-footer_contact">
+      <footer class="letter_foot">
+        <p class="letter_foot-brand">The <span>Diagnostic</span></p>
+        <p class="fill-me letter_foot-bio">[One line about the consultant: name, background, and why they run these
+          sessions]</p>
+        <div class="letter_foot-contact">
           <div><i class="fa-solid fa-phone" aria-hidden="true"></i><span class="fill-me">[Phone number]</span></div>
           <div><i class="fa-solid fa-envelope" aria-hidden="true"></i><span class="fill-me">hello@example.com</span>
           </div>
           <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span class="fill-me">[City, Nigeria]</span>
           </div>
         </div>
-      </div>
-      <div class="site-footer_bottom">
-        <span>&copy; <span id="year"></span> The Diagnostic. All rights reserved.</span>
-        <span class="fill-me">[Privacy Policy] &middot; [Terms &amp; Conditions]</span>
-      </div>
-    </div>
+      </footer>
+    </article>
+  </main>
+
+  <footer class="letter_legal">
+    <span>&copy; <span id="year"></span> The Diagnostic. All rights reserved.</span>
+    <span class="fill-me">[Privacy Policy] &middot; [Terms &amp; Conditions]</span>
   </footer>
 
-  <script src="assets/script.js"></script>
+  <script src="assets/js/letter.js"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 
