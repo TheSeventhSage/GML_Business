@@ -13,9 +13,9 @@
       } catch (e) { }
     })();
   </script>
-  <title>Book Your Business Diagnostic Session</title>
+  <title>Secure Your Diagnostic Session</title>
   <meta name="description"
-    content="Secure one of 3 weekly diagnostic sessions. ₦150,000. In person or by private video call." />
+    content="Secure one of 3 weekly Business Diagnostic &amp; Cure Sessions. ₦150,000, with the Business Rescue Arsenal included." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -26,23 +26,148 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    .booking-grid {
+    .checkout {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 56px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
       align-items: start;
     }
 
+    .checkout_form-panel h2,
+    .order-summary h2 {
+      font-size: 1.375rem;
+      margin-bottom: 6px;
+    }
+
+    .checkout_hint {
+      font-size: 0.9375rem;
+      color: var(--color-text-faint);
+      margin: 0;
+    }
+
+    .order-summary {
+      position: sticky;
+      top: 24px;
+    }
+
     @media (max-width: 880px) {
-      .booking-grid {
+      .checkout {
         grid-template-columns: 1fr;
+        gap: 28px;
       }
+
+      /* On phones, show what they are paying for before the form */
+      .order-summary {
+        position: static;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .checkout .offer-panel {
+        padding: 24px 20px;
+      }
+    }
+
+    .order-summary_item {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .order-summary_line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .order-summary_line span:last-child {
+      white-space: nowrap;
+    }
+
+    .order-summary_free {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--color-accent-strong);
+    }
+
+    .order-summary_meta {
+      margin: 6px 0 0;
+      font-size: 0.875rem;
+      color: var(--color-text-faint);
+    }
+
+    .order-summary_bonuses {
+      list-style: none;
+      margin: 10px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 6px;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    .order-summary_bonuses li {
+      display: flex;
+      gap: 10px;
+    }
+
+    .order-summary_bonuses i {
+      color: var(--color-accent);
+      margin-top: 5px;
+      font-size: 0.75rem;
+    }
+
+    .order-summary_bonuses small {
+      color: var(--color-text-faint);
+      white-space: nowrap;
+    }
+
+    .order-summary_total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding-top: 18px;
+    }
+
+    .order-summary_total s {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--color-text-faint);
+      text-align: right;
+    }
+
+    .order-summary_total strong {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--color-accent);
+    }
+
+    .order-summary_badges {
+      list-style: none;
+      margin: 22px 0 0;
+      padding: 16px 0 0;
+      border-top: 1px solid var(--color-border);
+      display: grid;
+      gap: 8px;
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+    }
+
+    .order-summary_badges i {
+      width: 16px;
+      margin-right: 8px;
+      color: var(--color-accent);
     }
 
     .booking-form {
       display: grid;
       gap: 16px;
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
     .booking-form label {
@@ -69,7 +194,18 @@
       outline-offset: 2px;
     }
 
+    .booking-form_legend {
+      display: block;
+      padding: 0;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--color-text-faint);
+      margin-bottom: 8px;
+    }
+
     .booking-form fieldset {
+      display: grid;
+      gap: 16px;
       border: none;
       padding: 0;
       margin: 0;
@@ -148,80 +284,23 @@
 
   <main>
 
-    <section class="hero" style="padding-bottom: 24px;">
+    <section class="hero" style="padding: 56px 0 32px;">
       <div class="container">
-        <p class="hero_eyebrow">Business Diagnostic &amp; Roadmap Session</p>
-        <h1 class="hero_title" style="max-width: 20ch; font-size: clamp(2.25rem, 3.4vw + 1rem, 3.5rem);">Secure your
-          slot</h1>
-        <p class="hero_subtitle">Because this requires deep, focused preparation and hours of review for each
-          business, I only accept 3 diagnostic audits per week.</p>
+        <p class="hero_eyebrow hero_eyebrow--positive"><i class="fa-solid fa-lock" aria-hidden="true"></i> Secure
+          checkout</p>
+        <h1 class="hero_title" style="font-size: clamp(2rem, 2.6vw + 1rem, 2.75rem);">Secure your slot</h1>
+        <p class="hero_subtitle">Enter your details and pay to lock in one of this week&rsquo;s 3 diagnostic
+          sessions.</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="padding-top: 16px;">
       <div class="container">
-        <div class="booking-grid">
+        <div class="checkout">
 
-          <div>
-            <div class="detail-block" style="border-top: none; padding-top: 0;">
-              <h3>What to expect</h3>
-              <ul>
-                <li><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i><span><strong>The
-                      diagnosis.</strong> I strip down your books, your inventory flow, your pricing, and your daily
-                    operations, and point directly to where your cash is disappearing.</span></li>
-                <li><i class="fa-solid fa-file-medical" aria-hidden="true"></i><span><strong>The prescription.</strong>
-                    I map out the exact structural, pricing, and operational adjustments you must make to stop the
-                    bleeding and protect your cash.</span></li>
-                <li><i class="fa-solid fa-route" aria-hidden="true"></i><span><strong>The blueprint.</strong> You
-                    walk away with a crystal-clear roadmap: do this in week one, fix this in week two, renegotiate
-                    this supplier term immediately.</span></li>
-              </ul>
-            </div>
-
-            <div class="detail-block">
-              <h3>How to prepare</h3>
-              <ul>
-                <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>Fill out the brief preliminary
-                    questionnaire so we can review your industry and operational setup.</span></li>
-                <li><i class="fa-solid fa-list-check" aria-hidden="true"></i><span>Complete your reservation fee to
-                    lock in one of the 3 weekly slots.</span></li>
-                <li><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>My team will coordinate your
-                    private, closed-door session immediately.</span></li>
-              </ul>
-            </div>
-
-            <div class="detail-block">
-              <h3>Important information</h3>
-              <ul>
-                <li><i class="fa-solid fa-naira-sign" aria-hidden="true"></i><span><strong>Pricing.</strong> The fee
-                    for this private diagnostic audit is only ₦150,000. You are already losing more than that every
-                    single month to unmonitored waste, bad credit, margin erosion, and operational friction.</span>
-                </li>
-                <li><i class="fa-solid fa-lock" aria-hidden="true"></i><span><strong>Confidentiality.</strong> Every
-                    session is strictly private and closed-door.</span></li>
-                <li><i class="fa-solid fa-rotate" aria-hidden="true"></i><span><strong>Rescheduling.</strong> <span
-                      class="fill-me">[Insert your rescheduling policy]</span></span></li>
-                <li><i class="fa-solid fa-receipt" aria-hidden="true"></i><span><strong>Refunds.</strong> <span
-                      class="fill-me">[Insert your refund policy]</span></span></li>
-              </ul>
-            </div>
-          </div>
-
-          <aside class="offer-panel" aria-labelledby="booking-heading">
-            <h2 id="booking-heading" style="font-size: 1.375rem; margin-bottom: 24px;">Business Diagnostic Session</h2>
-
-            <div class="offer-panel_row">
-              <span class="offer-panel_label">Fee</span>
-              <span class="offer-panel_value offer-panel_value--price">&#8358;150,000</span>
-            </div>
-            <div class="offer-panel_row">
-              <span class="offer-panel_label">Format</span>
-              <span class="offer-panel_value">In person or video call</span>
-            </div>
-            <div class="offer-panel_row">
-              <span class="offer-panel_label">Availability</span>
-              <span class="offer-panel_value">3 slots per week</span>
-            </div>
+          <div class="offer-panel checkout_form-panel">
+            <h2>Your details</h2>
+            <p class="checkout_hint">We use these to confirm your booking and send your preliminary questionnaire.</p>
 
             <form class="booking-form" id="booking-form">
               <fieldset>
@@ -247,8 +326,7 @@
               </fieldset>
 
               <fieldset>
-                <legend class="visually-hidden">Preferred format</legend>
-                <label for="format-in-person" class="visually-hidden">Format</label>
+                <legend class="booking-form_legend">Preferred format</legend>
                 <div class="format-choice">
                   <label>
                     <input type="radio" name="format" value="in-person" checked />
@@ -269,44 +347,55 @@
 
             <p class="payment-note">
               <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-              <span>Payments are processed securely. You'll receive a confirmation email once your slot is
-                reserved.</span>
+              <span>Payments are processed securely by Paystack. You&rsquo;ll receive a confirmation email once your
+                slot is reserved.</span>
             </p>
+          </div>
+
+          <aside class="offer-panel order-summary" aria-labelledby="summary-heading">
+            <h2 id="summary-heading">Your order</h2>
+
+            <div class="order-summary_item">
+              <div class="order-summary_line">
+                <span>Business Diagnostic &amp; Cure Session</span>
+                <span>&#8358;150,000</span>
+              </div>
+              <p class="order-summary_meta">Private 90-minute session &middot; virtual or in person</p>
+            </div>
+
+            <div class="order-summary_item">
+              <div class="order-summary_line">
+                <span>Business Rescue Arsenal</span>
+                <span class="order-summary_free">Included free</span>
+              </div>
+              <ul class="order-summary_bonuses">
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>&ldquo;Silent Math&rdquo; Cash Flow
+                    Matrix <small>&#8358;50,000</small></span></li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>Vendor Renegotiation Scripts
+                    <small>&#8358;75,000</small></span></li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>48-Hour SOP Blueprint
+                    <small>&#8358;100,000</small></span></li>
+                <li><i class="fa-solid fa-check" aria-hidden="true"></i><span>14-Day &ldquo;ICU&rdquo; WhatsApp
+                    Lifeline <small>&#8358;150,000</small></span></li>
+              </ul>
+            </div>
+
+            <div class="order-summary_total">
+              <span class="offer-panel_label">You pay today</span>
+              <span>
+                <s>Total value &#8358;525,000</s>
+                <strong>&#8358;150,000</strong>
+              </span>
+            </div>
+
+            <ul class="order-summary_badges">
+              <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Full refund if I can&rsquo;t tell you
+                exactly what is wrong</li>
+              <li><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i>Only 3 sessions accepted each week</li>
+              <li><i class="fa-solid fa-lock" aria-hidden="true"></i>Strictly private and closed-door</li>
+            </ul>
           </aside>
 
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--panel">
-      <div class="container">
-        <div class="section_head">
-          <h2>How to secure your slot</h2>
-        </div>
-        <ol class="steps">
-          <li>
-            <p>Click below and fill in your details.</p>
-          </li>
-          <li>
-            <p>Complete your reservation fee to secure one of the 3 weekly slots.</p>
-          </li>
-          <li>
-            <p>Fill out the brief preliminary questionnaire so we can review your industry and operational setup.</p>
-          </li>
-          <li>
-            <p>My team will coordinate your private, closed-door session immediately.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="contact-band">
-      <div class="container">
-        <h2>Still not sure?</h2>
-        <p>Contact our team if you have any further questions or queries, and we'll be happy to help.</p>
-        <div class="contact-band_actions">
-          <a href="mailto:hello@example.com" class="btn btn--ghost">Contact us</a>
-          <a href="the-diagnostic.html" class="btn btn--ghost">Read what's included again</a>
         </div>
       </div>
     </section>
@@ -315,22 +404,9 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="site-footer_grid">
-        <div class="site-footer_brand">
-          <a href="index.html" class="wordmark">The <span>Diagnostic</span></a>
-          <p class="fill-me">[One line about the consultant: name, background, and why they run these sessions]</p>
-        </div>
-        <div class="site-footer_contact">
-          <div><i class="fa-solid fa-phone" aria-hidden="true"></i><span class="fill-me">[Phone number]</span></div>
-          <div><i class="fa-solid fa-envelope" aria-hidden="true"></i><span class="fill-me">hello@example.com</span>
-          </div>
-          <div><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span class="fill-me">[City, Nigeria]</span>
-          </div>
-        </div>
-      </div>
       <div class="site-footer_bottom">
         <span>&copy; <span id="year"></span> The Diagnostic. All rights reserved.</span>
-        <span class="fill-me">[Privacy Policy] &middot; [Terms &amp; Conditions]</span>
+        <span><a href="index.html">&larr; Back to the full details</a></span>
       </div>
     </div>
   </footer>
