@@ -48,13 +48,14 @@ function serveFile(req, res) {
   const file = path.join(__dirname, path.normalize(url));
   const rel = path.relative(__dirname, file);
   const isPage = !rel.includes(path.sep) && rel.endsWith(".html");
+  const isSeoFile = rel === "robots.txt" || rel === "sitemap.xml";
   const isAsset = rel.startsWith("assets" + path.sep);
 
-  if ((!isPage && !isAsset) || !fs.existsSync(file)) {
+  if ((!isPage && !isAsset && !isSeoFile) || !fs.existsSync(file)) {
     res.writeHead(404);
     return res.end("Not found");
   }
-  const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml" };
+  const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".svg": "image/svg+xml", ".txt": "text/plain", ".xml": "application/xml" };
   res.writeHead(200, { "Content-Type": types[path.extname(file)] || "application/octet-stream" });
   fs.createReadStream(file).pipe(res);
 }
