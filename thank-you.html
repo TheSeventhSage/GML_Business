@@ -27,6 +27,26 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1519058990242800');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1519058990242800&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -48,11 +68,13 @@
         <p class="hero_eyebrow hero_eyebrow--positive"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>
           Payment received</p>
         <h1 class="hero_title" style="font-size: clamp(2rem, 3vw + 1rem, 3rem);">Your slot is reserved</h1>
-        <p class="hero_subtitle">Thank you. A confirmation has been sent to your email, along with the preliminary
-          questionnaire. My team will coordinate your private, closed-door session immediately.</p>
+        <p class="hero_subtitle">Thank you! Your request has been received successfully.
+          You’ll be redirected shortly to choose your preferred appointment date and time.
+        </p>
         <p class="hero_note" id="ref-line"></p>
         <div class="hero_actions">
-          <a href="index.html" class="btn btn--ghost">Back to home</a>
+          <a href="https://tidycal.com/miraclekelechinew/business-diagnostic-and-cure-session" class="btn btn--ghost">Go
+            Now</a>
         </div>
       </div>
     </section>
@@ -74,6 +96,10 @@
     if (ref) {
       document.getElementById("ref-line").textContent = "Reference: " + ref;
     }
+
+    setTimeout(() => {
+      window.location.href = "https://tidycal.com/miraclekelechinew/business-diagnostic-and-cure-session";
+    }, 5000);
   </script>
 </body>
 
