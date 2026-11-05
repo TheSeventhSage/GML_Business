@@ -66,12 +66,11 @@
     <section class="hero">
       <div class="container" style="max-width: 640px;">
         <p class="hero_eyebrow hero_eyebrow--positive"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-          Payment received</p>
-        <h1 class="hero_title" style="font-size: clamp(2rem, 3vw + 1rem, 3rem);">Your slot is reserved</h1>
-        <p class="hero_subtitle">Thank you! Your request has been received successfully.
+          Details received</p>
+        <h1 class="hero_title" style="font-size: clamp(2rem, 3vw + 1rem, 3rem);">Now choose your time</h1>
+        <p class="hero_subtitle">Thank you! Your details have been received.
           You’ll be redirected shortly to choose your preferred appointment date and time.
         </p>
-        <p class="hero_note" id="ref-line"></p>
         <div class="hero_actions">
           <a href="https://tidycal.com/miraclekelechinew/business-diagnostic-and-cure-session" class="btn btn--ghost">Go
             Now</a>
@@ -91,12 +90,6 @@
   <script src="assets/js/script.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    var params = new URLSearchParams(window.location.search);
-    var ref = params.get("ref");
-    if (ref) {
-      document.getElementById("ref-line").textContent = "Reference: " + ref;
-    }
-
     setTimeout(() => {
       window.location.href = "https://tidycal.com/miraclekelechinew/business-diagnostic-and-cure-session";
     }, 5000);

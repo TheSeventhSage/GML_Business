@@ -1,43 +1,32 @@
-// Serves the site and saves paid bookings to data/bookings.json.
-// No npm install, no build. Run with:  node --env-file=.env server.js
+// Serves the site and saves booking requests to data/bookings.json.
+// No npm install, no build. Run with:  node server.js
 
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const PORT = process.env.PORT || 3000;
-const SECRET_KEY = process.env.PAYSTACK_SECRET_KEY;
 const DB_FILE = path.join(__dirname, "data", "bookings.json");
+const FIELDS = ["full_name", "phone", "email", "business_name"];
 
-// Save a booking after payment
 async function saveBooking(req, res) {
-  const booking = JSON.parse(await readBody(req));
+  const input = JSON.parse(await readBody(req));
+  const clean = (v) => String(v || "").trim().slice(0, 200);
 
-  // Ask Paystack if this payment really happened (so nobody can fake a booking)
-  const check = await fetch("https://api.paystack.co/transaction/verify/" + encodeURIComponent(booking.reference), {
-    headers: { Authorization: "Bearer " + SECRET_KEY },
-  }).then((r) => r.json());
+  const booking = { id: crypto.randomUUID() };
+  for (const f of FIELDS) booking[f] = clean(input[f]);
+  booking.format = input.format === "video-call" ? "video-call" : "in-person";
+  booking.submitted_at = new Date().toISOString();
 
-  if (!check.status || check.data.status !== "success") {
-    return send(res, 400, { error: "Payment not confirmed" });
+  if (FIELDS.some((f) => !booking[f])) {
+    return send(res, 400, { error: "Missing details" });
   }
 
   const bookings = fs.existsSync(DB_FILE) ? JSON.parse(fs.readFileSync(DB_FILE, "utf8")) : [];
-  if (!bookings.some((b) => b.reference === booking.reference)) {
-    bookings.push({
-      reference: booking.reference,
-      full_name: booking.full_name,
-      phone: booking.phone,
-      email: booking.email,
-      business_name: booking.business_name,
-      format: booking.format,
-      amount_paid: check.data.amount / 100,
-      currency: check.data.currency,
-      paid_at: check.data.paid_at,
-    });
-    fs.mkdirSync(path.dirname(DB_FILE), { recursive: true });
-    fs.writeFileSync(DB_FILE, JSON.stringify(bookings, null, 2));
-  }
+  bookings.push(booking);
+  fs.mkdirSync(path.dirname(DB_FILE), { recursive: true });
+  fs.writeFileSync(DB_FILE, JSON.stringify(bookings, null, 2));
   send(res, 200, { ok: true });
 }
 
