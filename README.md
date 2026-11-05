@@ -82,33 +82,7 @@ The footer currently contains links for:
 
 ## 2. Booking Data
 
-When the form is submitted, the booking is saved to `data/bookings.json` by `server.js`. It is a single file with no npm packages and no build step, and it needs Node.js 20.6 or newer.
-
-**Run:**
-
-```bash
-node server.js
-```
-
-Then open `http://localhost:3000`. Pages must be opened through the server, not by double-clicking the HTML file, or bookings won't save.
-
-Each record looks like this:
-
-```json
-{
-  "id": "6f1c0a52-8d1e-4b7e-9a35-2f0c1c7d9e11",
-  "full_name": "Ada Obi",
-  "phone": "0803...",
-  "email": "ada@example.com",
-  "business_name": "Obi Foods",
-  "format": "in-person",
-  "submitted_at": "2026-09-25T10:02:00.000Z"
-}
-```
-
-`data/` is git-ignored, because it holds customer details. The server only serves the HTML pages and `assets/`, so it can't be downloaded from the site.
-
-**Hosting:** the host must run Node.js, for example cPanel's "Setup Node.js App", Render, Railway or a VPS. Static-only hosts such as GitHub Pages or Netlify can't save bookings.
+The site is fully static and has no backend. The booking form does not store anything: submitting it sends the visitor to `thank-you.html`, which redirects to the TidyCal page, where the booking itself is recorded.
 
 ---
 
@@ -161,7 +135,6 @@ Before the site goes live, confirm that:
 - [ ] Refund policy has been added
 - [ ] Privacy Policy page/link has been added
 - [ ] Terms & Conditions page/link has been added
-- [ ] Booking data storage/notification has been connected
 - [ ] Real testimonials have been added when available
 - [ ] All pages have been tested on mobile
 - [ ] Booking form has been tested before accepting real bookings

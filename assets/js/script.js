@@ -5,21 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function initTheme() {
   var toggle = document.querySelector(".theme-toggle");
   var root = document.documentElement;
-  var stored = null;
-
-  try {
-    stored = localStorage.getItem("diagnostic-theme");
-  } catch (e) {
-    // Fail gracefully
-    console.error(e);
-  }
-
-  var initial = stored;
-  if (!initial) {
-    initial = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark"; // Start with system theme preference
-  }
+  var initial = "light";
 
   applyTheme(initial);
 
